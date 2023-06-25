@@ -1,22 +1,26 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-Zombie*    zombieHorde( int N, std::string name );
+#include <iostream>
+#include <string>
 
-Class Zombie {
+class Zombie {
 
 	public:
 
-		Zombie(std::string name);
+		Zombie( std::string name = "" );
 		~Zombie();
 
 	int numZombie;
 
-	void announce(std:string name);
+	void announce( void );
 
 	private:
 
-		std:string _name;
-}
+		std::string _name;
+};
+
+Zombie*    zombieHorde( int N, std::string name );
+std::string randName();
 
 #endif

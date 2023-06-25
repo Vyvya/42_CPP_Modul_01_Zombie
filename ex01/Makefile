@@ -4,11 +4,11 @@ FLAGS = -std=c++98 -g
 FLAGS += -Werror -Wall -Wextra
 RM = rm -f
 
-SRCS = main.c \
+SRCS = main.cpp \
 		Zombie.cpp \
-		zombieHorde.cpp
+		zombieHorde.cpp \
 
-OBJS = $(SRCS:.cpp:.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
