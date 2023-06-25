@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/25 20:13:01 by vgejno            #+#    #+#             */
+/*   Updated: 2023/06/25 21:30:32 by vgejno           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 std::string randName() {
@@ -25,8 +37,7 @@ Zombie*    zombieHorde( int N, std::string name ) {
 
 	for( int i = 0; i < N; i++) {
 
-		name = randName();
-		//initialise each zombie object with name
+		// name = randName();
 		zombieArray[i] = Zombie( name );
 	}
 

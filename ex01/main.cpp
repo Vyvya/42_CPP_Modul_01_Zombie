@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/25 20:11:26 by vgejno            #+#    #+#             */
+/*   Updated: 2023/06/25 21:30:54 by vgejno           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 int	getNumZombie() {
@@ -12,15 +24,11 @@ int	getNumZombie() {
 	return num;
 }
 
-void announce() {
-
-	
-}
-
 int main() {
 
 	int num( getNumZombie() );
-	std::string name;
+	// std::string name;
+	std::string name = "CUCCI";
 
 	Zombie* zombieArray = zombieHorde( num, name);
 	
