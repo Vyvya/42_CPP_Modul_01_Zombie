@@ -1,24 +1,42 @@
-#include "Class.Zombie.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/25 20:11:44 by vgejno            #+#    #+#             */
+/*   Updated: 2023/06/25 21:26:37 by vgejno           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Zombie* newZombie(std::string name);
-void randomChump( std::string name );
+#include "Class.Zombie.hpp"
 
 int	main() {
 
 	// Zombie zombieStack( "Grisha" );
-	std::string str;
-	std::cin >> str;
-
-	Zombie zombieStack( str);
+	std::string zombieStackName;
+	std::cout << "Create Zombie on the stack with the name: ";
+	std::cin >> zombieStackName;
+	
+	Zombie zombieStack( zombieStackName);
 
 	Zombie* zombieHeap;
-	zombieHeap = newZombie( "Boo" );
-	// std::cin >> zombieHeap;
+	std::string zombieHeapName;
+	std::cout << "Create Zombie on the heap with the name: ";
+	std::cin >> zombieHeapName;
+	
+	zombieHeap = newZombie( zombieHeapName );
 
 	zombieStack.announce();
 	zombieHeap->announce();
 
-	randomChump( "Da" );
+	std::string randomChumpName;
+	std::cout << "Create Zombie randomChump with the name: ";
+	std::cin >> randomChumpName;
+	
+	randomChump( randomChumpName );
+	
 	delete zombieHeap;
 
 	return 0;
