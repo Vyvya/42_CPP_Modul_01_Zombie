@@ -6,36 +6,102 @@
 /*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 22:34:00 by vgejno            #+#    #+#             */
-/*   Updated: 2023/06/26 22:50:40 by vgejno           ###   ########.fr       */
+/*   Updated: 2023/06/27 19:33:53 by vgejno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sed.hpp"
 
-int main() {
-	
-	std::ifstream fileToOpen;
-	fileToOpen.open( "lyrics_Rene.txt" );
+void writeToNewFile() {
 
-	// std::ifstream fileToOpen( "lyrics_Rene.txt" ); //equivalent
-	
-	//declare a string to hold the content
-	std::string stringToHoldContent;
+	std::ifstream infile ( "lyrics_Rene.txt" );
+	std::ofstream outfile ( "lyrics_copy.txt" );
 
-	//always check whether file is open
-	if( fileToOpen.is_open() ) {
+	if( infile && outfile ) {
 
-		while( fileToOpen.good() ) { //or while( fileToOpen )
+		std::string str;
+		while( infile  ) {
 			
-			// fileToOpen >> stringToHoldContent; //pipes file's content into stream
-			// std::cout << stringToHoldContent; //pipe stream's content to STDOUT
-			std::getline ( fileToOpen, stringToHoldContent );
-			std::cout << stringToHoldContent << std::endl;
+			std::getline( infile, str );
+			outfile << str << std::endl;
 		}
+		
+		std::cout << "Finished writing to a new file" << std::endl << std::endl;
+		
+	} else {
+		
+		std::cout << "Error opening / reading / creating file" << std::endl;
+	}
+	
+	return;
+}
+
+void readFile() {
+
+	std::ifstream infile ( "lyrics_Rene.txt" );
+
+	if( infile.is_open() ) {
+
+		std::string str;
+		while( infile.good() ) {
+			
+			std::getline( infile, str );
+			std::cout << str << std::endl;
+		}
+		
 	} else {
 
 		std::cout << "Error opening file" << std::endl;
 	}
+	
+	infile.close(); //good practice
+	return;
+}
 
+void replaceToNewFile() {
+
+	std::ifstream infile ( "lyrics_Rene.txt" );
+	
+	std::ofstream outfile( "outfile_replaced.txt" );
+	std::string buffer;
+	std::string s1 ( "Took too long to get it (you got it)" );
+	std::string s2 ( "BLa la la la la la la la..." ); //It didn't take too long to get it (you got it)
+	
+	
+	if( infile && outfile ) {
+ 
+		while( std::getline( infile, buffer ) ) {
+
+			if( s1.compare( buffer ) != 0 ) {
+
+				outfile << buffer << std::endl;
+			} else {
+
+				outfile << s2 << std::endl;
+			}
+		}
+	} else {
+		std::cout << "Error opening / reading / creating file" << std::endl;
+	}
+	return;
+}
+
+int main() {
+
+	std::cout << "Read infile" << std::endl << std::endl;
+	readFile();
+	std::cout << std::endl;
+	
+	std::cout << "Write to a new file" << std::endl << std::endl;
+	writeToNewFile();
+	std::cout << std::endl;
+	
+	std::cout << "Read again infile" << std::endl;
+	readFile();
+	std::cout << std::endl;
+	
+	std::cout << "Replace & write to a new file" << std::endl << std::endl;
+	replaceToNewFile();
+	
 	return 0;
 }

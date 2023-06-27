@@ -6,7 +6,7 @@ RM = rm -f
 
 SRCS = main.cpp \
 
-OBJS = $(SRSC:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
@@ -25,3 +25,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
