@@ -6,7 +6,7 @@
 /*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 21:14:20 by vgejno            #+#    #+#             */
-/*   Updated: 2023/06/25 21:14:21 by vgejno           ###   ########.fr       */
+/*   Updated: 2023/06/26 00:31:35 by vgejno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int main() {
 
 	std::string string = "HI THIS IS BRAIN";
 
-	std::string *stringPTR = &string;
-	std::string &stringREF = string;
+	std::string* stringPTR = &string;
+	std::string& stringREF = string;
 
 	std::cout << "Address of the string variable string: " << &string << std::endl;
 	std::cout << "Address held by stringPTR: " << stringPTR << std::endl;

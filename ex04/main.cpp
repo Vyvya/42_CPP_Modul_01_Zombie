@@ -6,7 +6,7 @@
 /*   By: vgejno <vgejno@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 22:34:00 by vgejno            #+#    #+#             */
-/*   Updated: 2023/06/27 19:48:22 by vgejno           ###   ########.fr       */
+/*   Updated: 2023/06/27 20:55:52 by vgejno           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void replaceToNewFile() {
 		std::cout << "Error s1 & s2" << std::endl;
 		
 	}
-	
+	infile.close();
+	outfile.close();
 	return;
 }
 
@@ -79,7 +80,8 @@ void writeToNewFile() {
 		
 		std::cout << "Error creating file" << std::endl;
 	}
-	
+	infile.close();
+	outfile.close();
 	return;
 }
 
